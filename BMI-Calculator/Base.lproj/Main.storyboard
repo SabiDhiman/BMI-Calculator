@@ -174,7 +174,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="RECALCULATE"/>
-                                <buttonConfiguration key="configuration" style="filled" title="RECALCULATE">
+                                <buttonConfiguration key="configuration" style="filled" title="RECALCULATE" cornerStyle="fixed">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                     <color key="baseForegroundColor" red="0.41438964709999998" green="0.25156470339999998" blue="0.54779138969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
