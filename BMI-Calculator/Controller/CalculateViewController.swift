@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculateViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
@@ -10,18 +10,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var weightSlder: UISlider!
     @IBOutlet weak var heightSlder: UISlider!
     
+    var bmiValue: Double?
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-    }
-    
-    
-    @IBAction func calculatePressed(_ sender: UIButton) {
-        let height = Double(heightSlder.value)
-        let weight = Double(weightSlder.value)
-        
-        let bmi = weight / (pow(height, 2))
-        print(bmi)
     }
     
     @IBAction func heightSliderChanged(_ sender: UISlider) {
@@ -35,9 +27,22 @@ class ViewController: UIViewController {
         weightLabel.text = "\(wholeNum)Kg"
     }
     
+    @IBAction func calculatePressed(_ sender: UIButton) {
+        let height = Double(heightSlder.value)
+        let weight = Double(weightSlder.value)
+        
+        self.bmiValue = weight / (pow(height, 2))
+        
+        self.performSegue(withIdentifier: "goToResult", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let destination = segue.destination as! ResultsViewController
+            destination.bmiValue = String(format: "%.2f", self.bmiValue!)
+        }
+    }
     func updateUI() {
         label.text = "Calculate Your BMI"
-        
     }
 }
 
